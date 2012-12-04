@@ -26,25 +26,25 @@ def print_csv(output_file, clustered_dupes) :
     
     for group_id, cluster in enumerate(clustered_dupes, 1) :
       for candidate in sorted(cluster) :
-        print group_id, candidate
-        # row = orig_data[candidate]
+        # print group_id, candidate
         row = [group_id, candidate]
         writer.writerow(row)
 
 t0 = time.time()
 
-input_file = 'data/northwestern_match_examples.csv'
-output_file = 'data/northwestern_clusters.csv'
+input_file = 'data/duplicate_pairs.csv'
+output_file = 'data/clustered_data.csv'
 cluster_threshold = 0.3
 
+print 'importing data'
 duplicates = importData(input_file)
 #print duplicates
 
+print 'evaluating clusters'
 clusters = hierarchical.cluster(duplicates, cluster_threshold)
 #print clusters
 
-print '# duplicate sets'
-print len(clusters)
+print '# duplicate sets:', len(clusters)
 print_csv(output_file, clusters)
 
 print 'ran in ', time.time() - t0, 'seconds'
