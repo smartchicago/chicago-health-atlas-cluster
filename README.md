@@ -5,9 +5,8 @@ Tool for clustering duplicate patient record ids based on match threshold.
 ## Python Dependencies
 
 * [numpy](http://numpy.scipy.org/)
-* hierarchical cluster depends upon
-  * [fastcluster](http://math.stanford.edu/~muellner/fastcluster.html)
-  * [hcluster](http://code.google.com/p/scipy-cluster/)
+* [fastcluster](http://math.stanford.edu/~muellner/fastcluster.html)
+* [hcluster](http://code.google.com/p/scipy-cluster/)
 
 ## Usage
   > python cluster.py
