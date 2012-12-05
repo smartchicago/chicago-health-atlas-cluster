@@ -12,7 +12,7 @@ def importData(filename):
     with open(filename) as f:
         reader = csv.DictReader(f)
         for row in reader:
-            duplicate_pairs.append(((cleanId(row['id1']), cleanId(row['id2'])), float(row['level'])))
+            duplicate_pairs.append(((cleanId(row['id1']), cleanId(row['id2'])), 1-float(row['level'])))
 
     return duplicate_pairs
 
@@ -34,7 +34,7 @@ t0 = time.time()
 
 input_file = 'data/duplicate_pairs.csv'
 output_file = 'data/clustered_data.csv'
-cluster_threshold = 0.3
+cluster_threshold = 0.5
 
 print 'importing data'
 duplicates = importData(input_file)
