@@ -12,12 +12,9 @@ def importData(filename):
     with open(filename) as f:
         reader = csv.DictReader(f)
         for row in reader:
-            duplicate_pairs.append(((cleanId(row['id1']), cleanId(row['id2'])), 1-float(row['level'])))
+            duplicate_pairs.append(((row['id1'], row['id2']), 1-float(row['level'])))
 
     return duplicate_pairs
-
-def cleanId(id_string):
-    return int(id_string.replace('CC', ''))
 
 def print_csv(output_file, clustered_dupes) :
   with open(output_file,"w") as f :
